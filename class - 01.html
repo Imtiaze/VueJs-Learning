@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div id="app">
+
+			<!-- first -->
+			<h1>{{ message }}</h1>
+			
+			<!-- second -->
+			<h1 v-bind:class="className">{{ message }}</h1>
+
+			<!-- Third -->
+			<h2 v-if='show'>Third Element</h2>
+			
+			<!-- Fouth -->
+			<ol v-show="visible">
+				<li v-for="list in lists">{{ list }}</li>
+			</ol>
+
+			<!-- Fifth -->
+			<ul>
+				<li v-for="list in lists1">{{ list.name }}</li>
+			</ul>
+
+			<!-- sixth -->
+			<input type="text" v-model='message' class="form-control">
+
+			<!-- seventh -->
+			<button v-on:Click="showLists">showLists</button>
+		</div>
+	</div>
+
+	<script>
+		new Vue({
+			el	:	'#app',
+			data: {
+				message: 'This is an old message',
+				className: 'alert alert-danger',
+				show: false,
+				lists: ['linkedin', 'github', 'skype'],
+				lists1: [
+					{name : 'skype'},
+					{age : 23},
+					{honest : true},
+				],
+				visible: false,
+			},
+
+			methods: {
+				showLists: function() {
+					this.visible = true;
+				}
+			}
+			
+		});
+	</script>
+</body>
+</html>
