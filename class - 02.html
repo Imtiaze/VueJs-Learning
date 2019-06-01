@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div id="app">
+
+			<!-- first -->
+            <!-- <h1>{{ reverse() }}</h1>
+            <h1>{{ reverse() }}</h1>
+            <h1>{{ reverse() }}</h1>
+            <h1>{{ reverse() }}</h1> -->
+            
+			<!-- second -->
+
+			<!-- <h1>{{ reverse }}</h1>
+            <h1>{{ reverse }}</h1>
+            <h1>{{ reverse }}</h1>
+            <h1>{{ reverse }}</h1> -->
+
+			<!-- Third -->
+			<!-- <h1>{{ reverseM() }}</h1>
+            <h1>{{ reverseC   }}</h1>
+            <h1>{{ reverseM() }}</h1>
+            <h1>{{ reverseM() }}</h1>
+			<h1>{{ reverseM() }}</h1> -->
+
+			
+			<!-- Fouth -->
+			km:
+			<input class="form-control" type="text" v-model='km'>
+			m:
+			<input class="form-control" type="text" v-model='m'>
+
+			<!-- Fifth -->
+				Fullname: 
+			<input class="form-control" type="text" v-model='fullName'>
+			<h3>{{ firstName }}</h3>
+			<h3>{{ lastName }}</h3>
+
+			<!-- sixth -->
+
+			<!-- seventh -->
+		</div>
+	</div>
+
+	<script>
+		new Vue({
+			el	:	'#app',
+
+            data: {
+                message : 'This is bitfume',
+
+				km: 0,
+				m: 0,
+				firstName: 'ahammed',
+				lastName: 'Imtiaze',
+            },
+
+            methods: {
+                // reverse: function() {
+                //     return this.message.split('').reverse().join('');
+                // }
+
+				reverseM: function() {
+					return Date.now();
+				}
+            },
+			computed: {
+				// reverse: function() {
+				// 	return this.message.split('').reverse().join('');
+				// }
+
+				reverseC: function () {
+					return  Date.now();
+				},
+
+				// Fifth
+
+				fullName: {
+					//getter  
+					get: function () {
+						return this.firstName + " " + this.lastName;
+					},
+					//setter
+					set: function (name) {
+						var name = name.split(' ');
+						this.firstName = name[0];
+						this.lastName = name[1];
+					}
+				}
+			},
+
+			watch: {
+				// <!-- Fouth -->
+				km: function (val) {
+					this.km = val;
+					this.m = val * 1000;
+				},
+				m: function (val) {
+					this.m = val;
+					this.km = val / 1000;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
