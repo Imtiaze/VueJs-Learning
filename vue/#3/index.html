@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter and Setter</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+           <h1 v-bind:class="{'alert alert-success': isActive, 'col-lg-6': isTrue}">Speed of Light</h1>
+            <br><br>
+            <h4 :style="styleSection" :title="title">Speed of Sound</h4>
+            <br><br>
+            <h3 :class="[isActive ? 'alert alert-success' : 'alert alert-danger']">Speed of Universe</h3>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                styleSection: {
+                    color:'red',
+                    border:'2px solid black',
+                },
+                title: 'This is best title i have ever given',
+                className: 'alert alert-success',
+                isActive: true,
+                isTrue: true,
+            }
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            
+            <input type="text" v-model="km">
+            <input type="text" v-model="m">
+
+        </div>
+    </div>
+    <script>
+
+        new Vue({
+            el: "#app",
+            data: {
+                message: "This is Imtiaze",
+                km: 0,
+                m: 0
+            },
+            watch: {
+                km: function(val) {
+                    this.km = val;
+                    this.m = val * 1000;
+                },
+                m: function(val) {
+                    this.km = val/1000;
+                    this.m = val;
+                }
+            }
+          
+        });
+
+    </script>
+</body>
+</html>

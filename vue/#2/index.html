@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <h1>{{ reverseM() }}</h1>
+            <h1>{{ reverseC }}</h1>
+            <h1>{{ reverseM() }}</h1>
+            <h1>{{ reverseM() }}</h1>
+            <h1>{{ reverseM() }}</h1>
+            <h1>{{ reverseC }}</h1>
+            <h1>{{ reverseC }}</h1>
+            <h1>{{ reverseC }}</h1>
+            <h1>{{ reverseC }}</h1>
+
+        </div>
+    </div>
+    <script>
+
+        new Vue({
+            el: "#app",
+            data: {
+                message: "This is Imtiaze"
+            },
+            methods: {
+                // reverse: function() {
+                //     return this.message.split('').reverse().join('')
+                // }
+
+                reverseM: function() {
+                    return "Method(): " + Date.now();
+                }
+            },
+            computed: {
+                // reverse: function() {
+                //     return this.message.split('').reverse().join('')
+                // }
+
+                reverseC: function() {
+                    return "Computed: " + Date.now();
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

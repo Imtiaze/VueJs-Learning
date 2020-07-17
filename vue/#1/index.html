@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <!-- first -->
+            <h1>{{ message }}</h1>
+
+            <!-- second -->
+            <h1 v-bind:class="className">Class Loding from vue</h1>
+
+            <!-- third -->
+            <h1 v-if="show">Vue Condition</h1>
+
+            <!-- fourth -->
+            <ol v-show="visible">
+                <li v-for="list in lists">{{ list }}</li>
+            </ol>
+
+            <!-- fifth -->
+            <ul>
+                <li v-for="list in list1">{{ list.name }}</li>
+            </ul>
+
+            <!-- sixth -->
+
+            <input type="text" v-model='message' class="form-control">
+
+            <!-- seventh -->
+            <br>
+            <button v-on:Click='enableList' type="button" class="btn btn-info">Show list</button>
+
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el : '#app',
+            data: {
+                message: "Imtiaze has started learning Vue",
+                className: "alert alert-danger",
+                show: true,
+                lists: ['linkedin', 'github', 'stackoverflow', 'life'],
+                list1: [
+                    {name: "Ahammed"},
+                    {name: "Imtiaze"},
+                ],
+                visible: false,
+            },
+            methods: {
+                enableList : function() {
+                    this.visible = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
