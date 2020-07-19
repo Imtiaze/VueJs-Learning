@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> V-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            
+            <!-- <ul>
+                <li v-for="(value,index,key) in list">{{key+1}} - {{index}} - {{ value }}</li>
+            </ul> -->
+
+            <ul>
+                <li v-for="(value,index) in list">
+                    {{ index+1 }} {{ value }}
+                </li>
+            </ul>
+
+            <div class="form-group col-lg-6">
+                <input type="text" v-model="newFruit" class="form-control" autofocus><br>
+                <button class="btn btn-success" @click="add">Add me</button>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                // list: {
+                //     fruit: 'Apple',
+                //     fruit1: 'Banana',
+                //     fruit2: 'Mango',
+                //     fruit3: 'Jack Fruit',
+                // }
+
+                list: [
+                    fruit = 'Apple',
+                    fruit1 = 'Banana',
+                    fruit2 = 'Mango',
+                    fruit3 = 'Jack Fruit',
+                ], 
+                
+                newFruit: '',
+            },
+
+            methods: {
+                add: function() {
+                    this.list.push(this.newFruit);
+                    this.newFruit = '';
+                }
+            }
+            
+        });
+    </script>
+</body>
+</html>

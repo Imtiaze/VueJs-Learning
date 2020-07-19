@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> V-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+<br><br>
+            <div class="col-lg-5">
+                <ul class="list-group">
+                    <li v-for="fruit in list" @click="add(fruit)" :class="fruit.class" class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ fruit.name }}
+                        <span class="badge badge-primary badge-pill">{{ fruit.cost }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ total }}
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+
+
+
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+
+            data: {
+                list: [
+                    {name: 'Mango', cost: 20, clicked: false, class: 'unselect'},
+                    {name: 'Banana', cost: 10, clicked: false, class: 'unselect'},
+                    {name: 'Jackfruit', cost: 50, clicked: false, class: 'unselect'},
+                ],
+                total: 0,
+            },
+            methods: {
+                add:function(fruit) {
+
+                    if (!fruit.clicked) {
+                        this.total += fruit.cost;
+                        fruit.class="select";
+                    } else {
+                        this.total -= fruit.cost;
+                        fruit.class="unselect";
+                    }
+
+                    fruit.clicked = !fruit.clicked;
+                }
+            }
+        });
+    </script>
+    <style>
+        .select {
+            background-color: #B8DAFF;
+        }
+        .unselect{
+            background-color: #F5C6CB;
+        }
+    </style>
+</body>
+
+</html>

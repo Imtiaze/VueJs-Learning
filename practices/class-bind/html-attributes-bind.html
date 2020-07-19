@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Bind</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .profile {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <br>
+    <div class="container" id="app">
+        <a v-bind:href="link" :title="title" :class="{profile:isClass}">{{ profile }}</a>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
