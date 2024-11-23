@@ -102,6 +102,8 @@ For example, the `.prevent` modifier tells the `v-on` directive to call `event.p
 <form @submit.prevent="onSubmit">...</form>
 ```
 
+changed
+
 ![GitHub Logo](https://vuejs.org/assets/directive.DtZKvoAo.png)
 
 
