@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3 App</title>
+  <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="app"></div> <!-- This is where the Vue app will be mounted -->
+
+  <script>
+    
+    const App = {
+        data() {
+            return {
+                count: 1
+            }
+        },
+
+        mounted() {
+            console.log(this.count)
+
+            this.count = 2
+        },
+
+        template: `Count is: {{ count }}`
+    };
+
+    Vue.createApp(App).mount('#app');
+
+  </script>
+  
+</body>
+</html>

@@ -101,9 +101,38 @@ For example, the `.prevent` modifier tells the `v-on` directive to call `event.p
 ```javascript
 <form @submit.prevent="onSubmit">...</form>
 ```
-
-changed
-
 ![GitHub Logo](https://vuejs.org/assets/directive.DtZKvoAo.png)
+
+
+
+# <center> Recativity Fundamentals  </center>
+
+### Declaring Reactive State
+- we use the `data` option to declare `reactive state` of a component
+- The option value should be a `function` that returns an `object`
+- Vue will call the function when `creating a new component instance`, and wrap the returned object in its `reactivity` system.
+
+```javascript
+<div id="app"></div>
+
+const App = {
+    data() {
+        return {
+            count: 1
+        }
+    },
+
+    mounted() {
+        console.log(this.count)
+
+        this.count = 2
+    },
+
+    template: `Count is: {{ count }}`
+};
+
+Vue.createApp(App).mount('#app');
+```
+- Do not use `$` `_` for top level data properties cause Vue use its own built-n APIs
 
 
