@@ -159,3 +159,34 @@ const App = {
 
 Vue.createApp(App).mount('#app');
 ```
+
+# <center> Class & Style Binding  </center>
+
+### Binding HTML Classes
+```js
+<div id="app">
+  <div class="static" :class="{ active: isActive, 'text-danger': hasError}">{{ text }}</div>
+</div>
+<script>
+  const App = {
+    data() {
+      return {
+        isActive: true,
+        hasError: true
+        text: "Something"
+      };
+    },
+
+    methods: {},
+
+    mounted() { },
+  };
+
+  Vue.createApp(App).mount("#app");
+</script>
+```
+- two word class mustbe blocked with inverted comma. ex- `'active'` `'text-danger'`
+- When isActive and hasError change become true it will render in dom like
+`<div class="static active text-danger">Something</div>`
+
+
