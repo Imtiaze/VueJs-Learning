@@ -167,6 +167,8 @@ Vue.createApp(App).mount('#app');
 <div id="app">
   <div class="static" :class="{ active: isActive, 'text-danger': hasError}">{{ text }}</div>
 </div>
+```
+```js
 <script>
   const App = {
     data() {
@@ -175,11 +177,7 @@ Vue.createApp(App).mount('#app');
         hasError: true
         text: "Something"
       };
-    },
-
-    methods: {},
-
-    mounted() { },
+    }
   };
 
   Vue.createApp(App).mount("#app");
@@ -188,5 +186,29 @@ Vue.createApp(App).mount('#app');
 - two word class mustbe blocked with inverted comma. ex- `'active'` `'text-danger'`
 - When isActive and hasError change become true it will render in dom like
 `<div class="static active text-danger">Something</div>`
+
+### Bound class Object
+```js
+<div id="app">
+  <div :class="clasObj">Something</div>
+</div>
+```
+```js
+<script>
+  const App = {
+    data() {
+      return {
+        clasObj: {
+          active: true,
+          "text-danger": true,
+        },
+      },
+    },
+  }
+
+  Vue.createApp(App).mount("#app");
+</script>
+```
+
 
 
