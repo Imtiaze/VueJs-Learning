@@ -135,4 +135,27 @@ Vue.createApp(App).mount('#app');
 ```
 - Do not use `$` `_` for top level data properties cause Vue use its own built-n APIs
 
+### Deep Reactivity
+```javascript
+const App = {
+    data() {
+        return {
+            obj: {
+                nested: { count: 0},
+                arr: ['foo', 'bar']
+            }
+        }
+    },
+    methods: {
+        mutateDeeply() {
+            this.obj.nested.count++
+            this.obj.arr.push('baze');
+        }
+    },
+    mounted() {
+        this.mutateDeeply()
+    }
+};
 
+Vue.createApp(App).mount('#app');
+```
