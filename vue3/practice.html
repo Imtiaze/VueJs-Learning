@@ -12,18 +12,25 @@
 
 <body>
 	<div id="app">
-		<div class="static" :class="clasObj">Something</div>
+		<div :class="classObject">Something</div>
 	</div>
 	<script>
 		const App = {
 			data() {
 				return {
-					clasObj: {
-						active: true,
-						"text-danger": true,
-					},
+					isActive: true,
+					hasError: null,
 				};
 			},
+
+			computed: {
+				classObject() {
+					return {
+						active: this.isActive && !this.hasError,
+						'text-danger': ! this.hasError && this.hasError.type === 'fatal'
+					}
+				}
+			}
 		};
 
 		Vue.createApp(App).mount("#app");

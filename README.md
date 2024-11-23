@@ -209,6 +209,34 @@ Vue.createApp(App).mount('#app');
   Vue.createApp(App).mount("#app");
 </script>
 ```
+### Binding to Computed property
+```js
+<div id="app">
+  <div :class="classObject">Something</div>
+</div>
+```
+```js
+<script>
+  const App = {
+    data() {
+      return {
+        isActive: true,
+        hasError: null,
+      };
+    },
 
+    computed: {
+      classObject() {
+        return {
+          active: this.isActive && !this.hasError,
+          'text-danger': ! this.hasError && this.hasError.type === 'fatal'
+        }
+      }
+    }
+  };
+
+  Vue.createApp(App).mount("#app");
+</script>
+```
 
 
