@@ -239,4 +239,15 @@ Vue.createApp(App).mount('#app');
 </script>
 ```
 
+### List Rendering
 
+- It is recommended to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple
+- The `key` binding expects primitive values - i.e. `strings` and `numbers`. Do not use `objects` as `v-for` keys.
+
+```js
+<template v-for="todo in todos" :key="todo.name">
+  <li>{{ todo.name }}</li>
+</template>
+```
+- It's not recommended to use `v-if` and `v-for` on the same element due to implicit precedence
+- When they exist on the same node, `v-if` has a higher priority than `v-for`.
