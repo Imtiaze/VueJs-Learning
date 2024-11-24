@@ -251,3 +251,27 @@ Vue.createApp(App).mount('#app');
 ```
 - It's not recommended to use `v-if` and `v-for` on the same element due to implicit precedence
 - When they exist on the same node, `v-if` has a higher priority than `v-for`.
+
+
+# <center> Event Handling  </center>
+
+### Inline Hanler
+```javascript
+<script>
+  const App = {
+    data() {
+      return {
+        count: 0
+      };
+    },
+  };
+
+  Vue.createApp(App).mount("#app");
+</script>
+```
+```html
+<div id="app">
+  <button @click="count++">Add 1</button>
+  <p>The button above has been clicked {{ count }} times.</p>
+</div>
+```

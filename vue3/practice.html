@@ -12,25 +12,16 @@
 
 <body>
 	<div id="app">
-		<div :class="classObject">Something</div>
+		<button @click="count++">Add 1</button>
+		<p>The button above has been clicked {{ count }} times.</p>
 	</div>
 	<script>
 		const App = {
 			data() {
 				return {
-					isActive: true,
-					hasError: null,
+					count: 0
 				};
 			},
-
-			computed: {
-				classObject() {
-					return {
-						active: this.isActive && !this.hasError,
-						'text-danger': ! this.hasError && this.hasError.type === 'fatal'
-					}
-				}
-			}
 		};
 
 		Vue.createApp(App).mount("#app");
