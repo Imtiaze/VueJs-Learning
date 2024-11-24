@@ -275,3 +275,35 @@ Vue.createApp(App).mount('#app');
   <p>The button above has been clicked {{ count }} times.</p>
 </div>
 ```
+
+### Method Handler
+
+```js
+<script>
+const App = {
+  data() {
+    return {
+      name: 'vue.js'
+    };
+  },
+
+
+  methods: {
+    greet(event) {
+      alert(`Hello ${this.name}`);
+
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+};
+
+Vue.createApp(App).mount("#app");
+</script>
+```
+```html
+<div id="app">
+  <button @click="greet">Greet</button>
+</div>
+```
