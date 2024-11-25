@@ -12,7 +12,7 @@
 
 <body>
 	<div id="app">
-		<button @click="greet">Greet</button>
+		<div @click.page-down="doSomething">Do something</div>
 	</div>
 	<script>
 		const App = {
@@ -24,12 +24,10 @@
 
 
 			methods: {
-				greet(event) {
-					alert(`Hello ${this.name}`);
+				doSomething(event) {
 
-					if (event) {
-						alert(event.target.tagName)
-					}
+					
+					alert('message');
 				}
 			}
 		};
