@@ -307,3 +307,35 @@ Vue.createApp(App).mount("#app");
   <button @click="greet">Greet</button>
 </div>
 ```
+`A method handler automatically receives the native DOM Event object that triggers it`
+
+- Inline Handler `foo()` `count++`
+- Method Handler `foo.bar` `foo['bar']`
+
+### Event Modifier
+
+```js
+methods: {
+  warn(message, event) {
+
+    if (event) {
+      event.preventDefault();
+    }
+    alert('message');
+  }
+}
+```
+writing `event.preventDefault()` inside methods is not a good practice
+
+To address this problem, Vue provides event modifiers for v-on.
+- `.stop`
+- `.prevent`
+- `.self`
+- `.capture`
+- `.once`
+- `.passive`
+
+```html
+<!-- the submit event will no longer reload the page -->
+<form @submit.prevent="onSubmit"></form>
+```
