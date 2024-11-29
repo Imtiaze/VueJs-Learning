@@ -339,3 +339,44 @@ To address this problem, Vue provides event modifiers for v-on.
 <!-- the submit event will no longer reload the page -->
 <form @submit.prevent="onSubmit"></form>
 ```
+# <center> Form Input Bindings  </center>
+
+```html
+<div id="app">
+  <h1>{{ message }}</h1>
+
+  <input :value="message" @input="event => message = event.target.value">
+
+  <input v-model="message">
+
+</div>
+```
+```js
+<script>
+  const App = {
+    data() {
+      return {
+        message: 'Hello'
+      };
+    },
+  };
+
+  Vue.createApp(App).mount("#app");
+</script>
+```
+
+```html
+<input :value="message" @input="event => message = event.target.value">
+
+`both are actually same`
+
+<input v-model="message">
+```
+
+Type (elements) | Property | Event
+------------|--------------|--
+`text` `text-area` | value | input
+`checkbox` `radio` | checked | change
+`select`| value as prop | change
+
+><b>Note:</b> `v-model` will ignore the initial value, checked or selected attributes found on any form elements. It will always treat the current bound JavaScript state as the source of truth. You should declare the initial value on the JavaScript side, using the data option.

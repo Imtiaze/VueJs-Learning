@@ -12,23 +12,20 @@
 
 <body>
 	<div id="app">
-		<div @click.page-down="doSomething">Do something</div>
+		<h1>{{ message }}</h1>
+		<input :value="message" @input="event => message = event.target.value">
 	</div>
 	<script>
 		const App = {
 			data() {
 				return {
-					name: 'vue.js'
+					message: 'Hello'
 				};
 			},
 
 
 			methods: {
-				doSomething(event) {
-
-					
-					alert('message');
-				}
+				
 			}
 		};
 
