@@ -341,6 +341,7 @@ To address this problem, Vue provides event modifiers for v-on.
 ```
 # <center> Form Input Bindings  </center>
 
+
 ```html
 <div id="app">
   <h1>{{ message }}</h1>
@@ -373,6 +374,8 @@ To address this problem, Vue provides event modifiers for v-on.
 <input v-model="message">
 ```
 
+### Text
+
 Type (elements) | Property | Event
 ------------|--------------|--
 `text` `text-area` | value | input
@@ -380,3 +383,13 @@ Type (elements) | Property | Event
 `select`| value as prop | change
 
 ><b>Note:</b> `v-model` will ignore the initial value, checked or selected attributes found on any form elements. It will always treat the current bound JavaScript state as the source of truth. You should declare the initial value on the JavaScript side, using the data option.
+
+Note that interpolation inside `<textarea>` won't work. Use v-model instead.
+
+```html
+<!-- bad -->
+<textarea>{{ text }}</textarea>
+
+<!-- good -->
+<textarea v-model="text"></textarea>
+```

@@ -12,25 +12,24 @@
 
 <body>
 	<div id="app">
-		<h1>{{ message }}</h1>
-		<input :value="message" @input="event => message = event.target.value">
+		<span>Multiline message is:</span>
+		<p style="white-space: pre-line;">{{ message }}</p>
+		<textarea v-model="message" placeholder="add multiple lines"></textarea>
 	</div>
+
 	<script>
 		const App = {
 			data() {
 				return {
-					message: 'Hello'
-				};
-			},
-
-
-			methods: {
-				
+					message: "",
+				}
 			}
 		};
 
+		
 		Vue.createApp(App).mount("#app");
 	</script>
+
 </body>
 
 </html>
