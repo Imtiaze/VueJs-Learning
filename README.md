@@ -396,4 +396,32 @@ Note that interpolation inside `<textarea>` won't work. Use v-model instead.
 
 ### Select
 
-If the initial value of your v-model expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
+```js
+<div id="app">
+
+  <div>Selected Value: {{ selected }}</div>
+  
+  <select v-model="selected">
+    <option disabled value="">Please Selected a  Value</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+
+</div>
+```
+
+```js
+<script>
+  const App = {
+    data() {
+      return {
+        selected: ''
+      }
+    }
+  };
+  Vue.createApp(App).mount("#app");
+</script>
+```
+
+>If the initial value of your v-model expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.

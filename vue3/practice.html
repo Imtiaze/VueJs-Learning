@@ -13,13 +13,14 @@
 <body>
 	<div id="app">
 
-		<div>Picked: {{ picked }}</div>
-
-		<input type="radio" id="one" value="One" v-model="picked">
-		<label for="one">One</label>
+		<div>Selected Value: {{ selected }}</div>
 		
-		<input type="radio" id="two" value="Two" v-model="picked">
-		<label for="two">Two</label>
+		<select v-model="selected">
+			<option disabled value="">Please Selected a  Value</option>
+			<option>A</option>
+			<option>B</option>
+			<option>C</option>
+		</select>
 
 	</div>
 
@@ -27,12 +28,10 @@
 		const App = {
 			data() {
 				return {
-					picked: 'One'
+					selected: ''
 				}
 			}
 		};
-
-		
 		Vue.createApp(App).mount("#app");
 	</script>
 
