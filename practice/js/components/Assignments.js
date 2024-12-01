@@ -1,34 +1,14 @@
+import AssignmentList from "./AssignmentList.js";
+
 export default {
+    
+    components: { AssignmentList },
+    
     template: `
-        <section v-if="unCompletedTask.length">
-            <h2 class="mb-2 font-bold">Uncompleted Assignments</h2>
 
-            <ul>
-                <li 
-                    v-for="item in unCompletedTask" :key="item.id"> 
-                    <label>    
-                        {{ item.title }} 
-                        <input type="checkbox" v-model="item.completed">
-                    </label>
-                </li>
-            </ul>
-        </section>
-
-        <section class="mt-2" v-if="completedTask.length">
-            <h2 class="mb-2 font-bold">Completed Assignments</h2>
-
-            <ul>
-                <li 
-                    v-for="item in completedTask" :key="item.id"> 
-                    
-                    <label>
-                        {{ item.title }} 
-                        <input type="checkbox" v-model="item.completed">
-                    </label>
-                    
-                </li>
-            </ul>
-        </section>
+        <AssignmentList :assignments="unCompletedTask" title="Completed Task"></AssignmentList>
+        <AssignmentList :assignments="completedTask" title="Uncompleted Task"></AssignmentList>
+        
         `,   
 
         data() {
